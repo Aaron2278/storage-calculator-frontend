@@ -10,19 +10,14 @@ const StorageCalculator = () => {
   const [result, setResult] = useState('');
 
   const calculateEndTime = () => {
-    // Convert start date and time to a Date object
     const dateTime = new Date(`${startDate} ${startTime}`);
     
-    // Calculate the total number of decreases needed until storage hits 0
     const totalDecreases = Math.ceil(storageAmount / decreaseAmount);
     
-    // Calculate total hours to deplete storage
     const totalHours = totalDecreases * decreaseRate;
     
-    // Add total hours to start datetime
     dateTime.setHours(dateTime.getHours() + totalHours);
 
-    // Format result
     const options = { month: '2-digit', day: '2-digit', year: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true };
     const resultString = `Storage will be 0 GB at ${dateTime.toLocaleString('en-US', options)}`;
 
