@@ -10,8 +10,8 @@ const StorageCalculator = () => {
   const [results, setResults] = useState([]);
 
   const calculateEndTime = () => {
-    if (!timeInput || !startDate || !decreaseRate) {
-      alert('Please provide the start date, time, and decrease rate.');
+    if (!timeInput || !startDate || !decreaseRate || !decreaseAmount) {
+      alert('Please provide the start date, time, decrease rate, and decrease amount.');
       return;
     }
 
@@ -31,22 +31,20 @@ const StorageCalculator = () => {
     if (period.toUpperCase() === 'PM') hours += 12;
 
     const [decreaseHours, decreaseMinutes, decreaseSeconds] = decreaseRate.split(':').map(Number);
-
     const [year, month, day] = startDate.split('-');
     const startDateTime = new Date(year, parseInt(month) - 1, day, hours, minutesInput, secondsInput);
 
     const totalDecreasesNeeded = Math.ceil(storageAmount / decreaseAmount);
-    // Convert the decrease rate to total seconds for easier calculation
     const decreaseRateInSeconds = decreaseHours * 3600 + decreaseMinutes * 60 + decreaseSeconds;
-    // Calculate the total decrease time in seconds
     const totalDecreaseTimeInSeconds = totalDecreasesNeeded * decreaseRateInSeconds;
-    // Convert the total decrease time to milliseconds for the Date object
+
     startDateTime.setSeconds(startDateTime.getSeconds() + totalDecreaseTimeInSeconds);
 
     const resultData = {
       id: results.length + 1,
       inputDate: new Date().toLocaleDateString('en-US'),
       storageAmountRequested: storageAmount,
+      decreaseAmountDisplayed: decreaseAmount,
       endDate: startDateTime.toLocaleString('en-US', {
         year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true
       })
@@ -112,6 +110,7 @@ const StorageCalculator = () => {
               <TableCell>ID</TableCell>
               <TableCell>Input Date</TableCell>
               <TableCell>Storage Amount Requested (GB)</TableCell>
+              <TableCell>Decrease Amount (GB)</TableCell>
               <TableCell>End Date</TableCell>
             </TableRow>
           </TableHead>
@@ -121,6 +120,7 @@ const StorageCalculator = () => {
                 <TableCell>{result.id}</TableCell>
                 <TableCell>{result.inputDate}</TableCell>
                 <TableCell>{result.storageAmountRequested}</TableCell>
+                <TableCell>{result.decreaseAmountDisplayed}</TableCell>
                 <TableCell>{result.endDate}</TableCell>
               </TableRow>
             ))}
