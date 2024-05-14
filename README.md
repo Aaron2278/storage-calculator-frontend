@@ -42,11 +42,10 @@ npm is distributed with Node.js which means that when you download Node.js, you 
 
 Use your terminal to install Node.js and npm by running the following commands:
 
-```bash
 sudo apt update
 sudo apt install nodejs npm
 
-After installing npm, run the following command to install the necessary dependencies for the project:
+## After installing npm, run the following command to install the necessary dependencies for the project:
 
 npm install
 
@@ -56,3 +55,12 @@ npm start
 
 This will start the development server and open the application in your default web browser. If it does not open automatically, you can access it by navigating to http://localhost:3000 in your web browser.
 
+## Technologies Used
+### Frontend
+* React: A JavaScript library for building user interfaces. It is used to create reusable UI components.
+* Material-UI: A popular React UI framework that provides pre-designed components and styles for building responsive web applications.
+## Backend
+* Node.js: A JavaScript runtime built on Chrome's V8 JavaScript engine. It is used to execute JavaScript code outside a web browser.
+* Express: A minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications. It is used to create the backend server and handle API requests.
+## Database
+* MySQL: A relational database management system based on SQL – Structured Query Language. It is used to store and manage the student data persistently.
