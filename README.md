@@ -22,7 +22,7 @@ The Storage Calculator is a React application that allows users to calculate the
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/your-username/storage-calculator.git
+   git clone https://github.com/Aaron2278/storage-calculator.git
    cd storage-calculator
 
 ## Install dependencies
