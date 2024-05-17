@@ -59,8 +59,3 @@ This will start the development server and open the application in your default 
 ### Frontend
 * React: A JavaScript library for building user interfaces. It is used to create reusable UI components.
 * Material-UI: A popular React UI framework that provides pre-designed components and styles for building responsive web applications.
-## Backend
-* Node.js: A JavaScript runtime built on Chrome's V8 JavaScript engine. It is used to execute JavaScript code outside a web browser.
-* Express: A minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications. It is used to create the backend server and handle API requests.
-## Database
-* MySQL: A relational database management system based on SQL – Structured Query Language. It is used to store and manage the student data persistently.
